@@ -278,12 +278,6 @@ def main(model) -> int:  # main thing with all of the main UX and styling going 
         print(colored("If you still face this error, check the validty of your puzzles and if it's correct or the image keeps refusing, open an issue report on this project's GitHub", "magenta"))
         print(colored("Project GitHub Page: https://github.com/FYI-PSA/ImageSudokuSolver", "magenta"))
         print("\n")
-
-        # BUG DISCOVERED :
-        #  when SolveByGrid can't make any change, it doesn't produce a candid grid, causing the brute forces and the checks to treat it as all 0 without possiblities (= fail)
-        # SOLUTION :
-        #  ... make the candid generation another function and make that the basis of the first SolveByGrid iteration? if it can be solved, it'll get simpler. otherwise it'll get passed down as itself.
-
         print(colored("One of the failed attempts:\n", "red"))
         gridprint(GRID)
         print("\n")
