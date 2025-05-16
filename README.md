@@ -13,10 +13,10 @@ cd ImageSudokuSolver
 ./Scripts/activate
 
 ```
-2. Clone the repository (or download it and extract it to the path `ImageSudokuSolver-master`)
+2. Clone the repository (or download it and extract it and after extracting, change the name of the extracted folder from `ImageSudokuSolver-Stable` to `ImageSudokuSolver`)
 ```bash
 git clone https://github.com/FYI-PSA/ImageSudokuSolver.git
-cd ImageSudokuSolver-master
+cd ImageSudokuSolver
 
 ```
 3. Install the required packages to run this project
@@ -28,5 +28,5 @@ python -m pip install -r ./requirements.txt
 
 ## Usage
 - Take a screenshot or a screen snip of your screen (as long as it clearly contains the grid and the grid is large enough to recognise the numbers.)
-- Save the file in the same `ImageSudokuSolver-master` directory as the rest of the files.
+- Save the file in the same `ImageSudokuSolver` directory as the rest of the files.
 - Run `main.py` (either by double clicking or by running it from a terminal)
