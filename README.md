@@ -11,15 +11,18 @@ Steps:
 python -m venv ImageSudokuSolver
 cd ImageSudokuSolver
 ./Scripts/activate
+
 ```
 2. Clone the repository (or download it and extract it to the path `ImageSudokuSolver-master`)
 ```bash
 git clone https://github.com/FYI-PSA/ImageSudokuSolver.git
 cd ImageSudokuSolver-master
+
 ```
 3. Install the required packages to run this project
 ```bash
 python -m pip install -r ./requirements.txt
+
 ```
 > You can now run the project successfully.
 
