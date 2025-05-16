@@ -274,6 +274,9 @@ def main(model) -> int:  # main thing with all of the main UX and styling going 
     print(colored(f"The final grid is {'CORRECT' if couldbesolved else 'INCORRECT'}\n\n\n", "green" if couldbesolved else "red"))
     if not couldbesolved:
         print(colored("There's an error in:  1. The image quality - 2. The puzzle configuration - 3. The program", "red"))
+        print(colored("Try a clearer picture, more zoomed in and clearer digits, and an obvious square grid in your screenshot.", "red"))
+        print(colored("If you still face this error, check the validty of your puzzles and if it's correct or the image keeps refusing, open an issue report on this project's GitHub", "magenta"))
+        print(colored("Project GitHub Page: https://github.com/FYI-PSA/ImageSudokuSolver", "magenta"))
         print("\n")
 
         # BUG DISCOVERED :
