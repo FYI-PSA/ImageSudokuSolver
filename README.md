@@ -13,17 +13,29 @@ cd ImageSudokuSolver
 ./Scripts/activate
 
 ```
-2. Clone the repository (or download it and extract it and after extracting, change the name of the extracted folder from `ImageSudokuSolver-Stable` to `ImageSudokuSolver`)
+
+2. Clone the repository  or  Download it and extract it and after extracting, change the name of the extracted folder from `ImageSudokuSolver-Stable` to `ImageSudokuSolver`
+  - With Git clone:
 ```bash
 git clone https://github.com/FYI-PSA/ImageSudokuSolver.git
 cd ImageSudokuSolver
 
 ```
+  - Without Git clone:
+```bash
+curl https://github.com/FYI-PSA/ImageSudokuSolver/archive/refs/heads/Stable.zip -OutFile Stable.zip
+unzip Stable.zip
+mv ImageSudokuSolver-Stable ImageSudokuSolver
+cd ImageSudokuSolver
+
+```
+
 3. Install the required packages to run this project
 ```bash
 python -m pip install -r ./requirements.txt
 
 ```
+
 > You can now run the project successfully.
 
 ## Usage
