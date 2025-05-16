@@ -8,7 +8,7 @@
 Steps:
 1. Make a new **Python3.10** environment and activate it
 ```bash
-python3 -m venv ImageSudokuSolver
+python -m venv ImageSudokuSolver
 cd ImageSudokuSolver
 ./Scripts/activate
 ```
