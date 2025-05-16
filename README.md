@@ -6,9 +6,9 @@
 > It is recommended that you create a new virtual environment using Python3.10 as the packages in this project are quite fragile and changing versions often leads to breaking changes in the code.
 
 Steps:
-1. Make a new Python3.10 environment and activate it
+1. Make a new **Python3.10** environment and activate it
 ```bash
-python3.10 -m venv ImageSudokuSolver
+python3 -m venv ImageSudokuSolver
 cd ImageSudokuSolver
 ./Scripts/activate
 ```
