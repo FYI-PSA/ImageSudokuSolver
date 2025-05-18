@@ -1,3 +1,4 @@
+import os
 import copy
 import math
 import time
@@ -251,6 +252,13 @@ def CheckValidGrid(gridbase) -> bool:  # takes a solved or an unsolved grid and 
 
 
 def read_gridjpg_to_grid(kerasmodel, filename='screenshot.png') -> list:
+    global EMPTYGRID
+    current_directory_files = os.listdir(os.getcwd())
+    if not (filename in current_directory_files):
+        print(colored(f"[>] The image '{filename}' isn't present in the current directory. Make sure to add it!", "magenta"))
+        print(colored("[>] Returning an empty grid just for fun, while you go get your image.", "yellow"))
+        print(colored("[>] No need to close the program; Just press the Enter key again and I'll process your image for you once you place it here.", "yellow"))
+        return (copy.deepcopy(EMPTYGRID))
     tile_images = sudokuextractor.process_image_file_to_list_of_polished_np_tiles(filename=filename)
     tiles = sudokureader.grayscale_numpy_tiles_list_to_predicted_integer_list(tiles=tile_images, model=kerasmodel)
     # print(tiles)
