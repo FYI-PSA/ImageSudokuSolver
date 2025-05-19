@@ -1,7 +1,8 @@
 import numpy as np
 from PIL import Image
-from matplotlib import pyplot as plt
 import cv2
+from copy import deepcopy
+from matplotlib import pyplot as plt
 
 
 # def getfilenameinfo(fname: str) -> tuple:  # useless
@@ -62,8 +63,8 @@ def rgb_image_to_inverse_thresholded_grayscale(rgb_image: np.ndarray, debug: boo
 
 
 def rectanlge_contours_from_inverse_threshholded_image(threshholded_img: np.ndarray, debug: bool = False) -> list:
-    # find contours
-    contours = cv2.findContours(threshholded_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[0]
+    # find contours makes modifications to the image afaik, so I'm copying it.
+    contours = cv2.findContours(deepcopy(threshholded_img), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[0]
     rectangles = []
     for c in contours:
         # get the information of the contour box
