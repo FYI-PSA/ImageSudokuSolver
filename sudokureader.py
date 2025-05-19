@@ -3,7 +3,8 @@ import numpy as np
 
 
 def load_model(filename: str = 'retrained_network.keras'):
-    model = kmodels.load_model(filename)
+    # model = kmodels.load_model(filename)
+    model = kmodels.load_model(filename, compile=False)  # Gets rid of the warning. I don't think it has an effect on how the model works, but not sure. Tests work out fine as before.
     return model
 
 
