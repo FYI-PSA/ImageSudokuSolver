@@ -181,25 +181,27 @@ def clean_tile(grayscale_tile: np.ndarray) -> np.ndarray:
     return resized_borderless
 
 
-def process_image_file_to_list_of_polished_np_tiles(filename: str) -> list:
+def process_image_file_to_list_of_polished_np_tiles(filename: str, debug: bool = False) -> list:
     rgb_image = rgb_image_from_file(filename)
-    threshholded_grayscale_image = rgb_image_to_inverse_thresholded_grayscale(rgb_image, debug=False)
-    rectangle_boxes = rectanlge_contours_from_inverse_threshholded_image(threshholded_grayscale_image, debug=False)
+    threshholded_grayscale_image = rgb_image_to_inverse_thresholded_grayscale(rgb_image, debug=debug)
+    rectangle_boxes = rectanlge_contours_from_inverse_threshholded_image(threshholded_grayscale_image, debug=debug)
     
     # for debugging purposes
-    for b in rectangle_boxes:
-        rectangular_mask = draw_boundary_to_new_mask(b, rgb_image)
-        draw_mask_to_original_image(rectangular_mask, rgb_image)
+    if debug:
+        for b in rectangle_boxes:
+            rectangular_mask = draw_boundary_to_new_mask(b, rgb_image)
+            draw_mask_to_original_image(rectangular_mask, rgb_image)
 
-    boundingbox_square = largest_square_bounding_from_list_of_rectanlges(rectangle_boxes, debug=False)
+    boundingbox_square = largest_square_bounding_from_list_of_rectanlges(rectangle_boxes, debug=debug)
     corrected_boundary = ensure_square_boundary(boundingbox_square)  # ensures that width and height are the exact same number, by exanding the smaller one (if they're close to the shape of a square)
-    square_image = extract_square_boundary_to_image(corrected_boundary, rgb_image, debug=False)
-    
-    # square_mask = draw_boundary_to_new_mask(corrected_boundary, rgb_image)
-    # draw_mask_to_original_image(square_mask, rgb_image)  # This is a nice tool but it acts more as a debug because it's not useful
+    square_image = extract_square_boundary_to_image(corrected_boundary, rgb_image, debug=debug)
+
+    if debug:
+        square_mask = draw_boundary_to_new_mask(corrected_boundary, rgb_image)
+        draw_mask_to_original_image(square_mask, rgb_image)  # This is a nice tool but it acts more as a debug because it's not useful
     
     grid = square_image
-    inverse_clean_grid = rgb_image_to_inverse_thresholded_grayscale(grid, debug=False)
+    inverse_clean_grid = rgb_image_to_inverse_thresholded_grayscale(grid, debug=debug)
     borderless_inverse_clean_grid = remove_border_pixels(inverse_clean_grid, margin_percent=0.5)
     tiles: list = split_square_to_81(borderless_inverse_clean_grid)
     clean_tiles: list = list(map(clean_tile, tiles))
@@ -209,7 +211,7 @@ def process_image_file_to_list_of_polished_np_tiles(filename: str) -> list:
 
 def main() -> None:
     filename = 'screenshot.png'
-    tile_images = process_image_file_to_list_of_polished_np_tiles(filename=filename)
+    tile_images = process_image_file_to_list_of_polished_np_tiles(filename=filename, debug=True)
     print(len(tile_images))
 
 
