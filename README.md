@@ -36,7 +36,7 @@ cd ImageSudokuSolver
   - Without Git installed:
     > You can manually do this step by visiting the url `https://github.com/FYI-PSA/ImageSudokuSolver/archive/refs/tags/Release.zip` and then unzipping it and renaming and shortening the name of the resulting folder to `ImageSudokuSolver`.
 ```bash
-curl https://github.com/FYI-PSA/ImageSudokuSolver/archive/refs/tags/Release.zip -O Release.zip
+wget https://github.com/FYI-PSA/ImageSudokuSolver/archive/refs/tags/Release.zip -O Release.zip
 unzip Release.zip
 mv ImageSudokuSolver-Release ImageSudokuSolver
 cd ImageSudokuSolver
