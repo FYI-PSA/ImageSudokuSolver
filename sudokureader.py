@@ -1,13 +1,13 @@
-import tensorflow as tf
+from tensorflow.keras import models as kmodels
 import numpy as np
 
 
 def load_model(filename: str = 'retrained_network.keras'):
-    model = tf.keras.models.load_model(filename)
+    model = kmodels.load_model(filename)
     return model
 
 
-def grayscale_numpy_tiles_list_to_predicted_integer_list(model: tf.keras.models.Model, tiles: list) -> list:
+def grayscale_numpy_tiles_list_to_predicted_integer_list(model: kmodels.Model, tiles: list) -> list:
     images_arr = np.asarray(tiles, dtype=np.uint8)
     img_arr_data = np.array(images_arr, dtype=np.float32)
     tile_arr_data = img_arr_data / 255
