@@ -25,15 +25,15 @@ source ./bin/activate
 
 ```
 
-2. Clone the repository  or  Download it and extract it.
-  - With Git clone installed:
+2. Clone the repository using the Git program   or   Download it and extract it.
+  - With Git installed:
 ```bash
 git clone https://github.com/FYI-PSA/ImageSudokuSolver.git
 cd ImageSudokuSolver
 
 ```
 
-  - Without Git clone installed:
+  - Without Git installed:
     > You can manually do this step by visiting the url `https://github.com/FYI-PSA/ImageSudokuSolver/archive/refs/tags/Release.zip` and then unzipping it and renaming and shortening the name of the resulting folder to `ImageSudokuSolver`.
 ```bash
 curl -LO https://github.com/FYI-PSA/ImageSudokuSolver/archive/refs/tags/Release.zip
