@@ -126,7 +126,7 @@ def draw_mask_to_original_image(mask: np.ndarray, rgb_original_img: np.ndarray) 
     final_img = cv2.cvtColor(res_final, cv2.COLOR_BGR2RGB)
     plt.title('the grid mask on the original image')
     plt.imshow(rgb_original_img)
-    plt.imshow(0mask)
+    plt.imshow(mask)
     plt.imshow(final_img)
     plt.show()
 
@@ -193,7 +193,7 @@ def process_image_file_to_list_of_polished_np_tiles(filename: str, debug: bool =
             draw_mask_to_original_image(rectangular_mask, rgb_image)
 
     boundingbox_square = largest_square_bounding_from_list_of_rectanlges(rectangle_boxes, debug=debug)
-    corrected_boundary = ensure_square_boundary(boundingbox_square)  # ensures that width and height are the exact same number, by exanding the smaller one (if they're close to the shape of a square)
+    corrected_boundary = ensure_square_boundary(boundingbox_square)  # ensures that width and height are the exact same number, by expanding the smaller one (if they're close to the shape of a square)
     square_image = extract_square_boundary_to_image(corrected_boundary, rgb_image, debug=debug)
 
     if debug:
